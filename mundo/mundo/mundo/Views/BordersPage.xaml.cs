@@ -1,13 +1,13 @@
 ﻿
 namespace mundo.Views
 {
-
     using Xamarin.Forms;
-    using Xamarin.Forms.Xaml;
+    using Xamarin.Forms.Xaml; 
+
     [XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class PaisPage : ContentPage
+	public partial class BordersPage : ContentPage
 	{
-		public PaisPage ()
+		public BordersPage ()
 		{
 			InitializeComponent ();
 		}

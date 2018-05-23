@@ -1,13 +1,12 @@
-﻿
-namespace mundo.Views
+﻿namespace mundo.Views
 {
-
     using Xamarin.Forms;
     using Xamarin.Forms.Xaml;
+
     [XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class PaisPage : ContentPage
+	public partial class PaisTabbedPage : TabbedPage
 	{
-		public PaisPage ()
+		public PaisTabbedPage ()
 		{
 			InitializeComponent ();
 		}
