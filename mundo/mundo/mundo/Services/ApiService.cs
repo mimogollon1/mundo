@@ -1,6 +1,6 @@
-﻿namespace Mundo.Services
+﻿namespace mundo.Services
 {
-    using Mundo.Models;
+    using Models;
     using Newtonsoft.Json;
     using Plugin.Connectivity;
     using System;
@@ -9,7 +9,7 @@
     using System.Net.Http.Headers;
     using System.Threading.Tasks;
 
-    class ApiService
+    public class ApiService
     {
         public async Task<Response> CheckConnection()
         {

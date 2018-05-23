@@ -1,9 +1,9 @@
-﻿namespace Mundo.ViewModels
+﻿namespace mundo.ViewModels
 {
     using GalaSoft.MvvmLight.Command;
     using Models;
-    using mundo.ViewModels;
-    using Mundo.Services;
+    using ViewModels;
+    using Services;
     using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
@@ -11,7 +11,7 @@
     using System.Windows.Input;
     using Xamarin.Forms;
 
-    class PaisesViewModel : BaseViewModel
+    public class PaisesViewModel : BaseViewModel
     {
         #region Services;
         ApiService apiService;

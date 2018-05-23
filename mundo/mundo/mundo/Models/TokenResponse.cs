@@ -1,5 +1,5 @@
 ﻿
-namespace Mundo.Models
+namespace mundo.Models
 {
     using System;
     using Newtonsoft.Json;

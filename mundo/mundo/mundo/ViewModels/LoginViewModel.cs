@@ -1,13 +1,13 @@
-﻿namespace Mundo.ViewModels
+﻿namespace mundo.ViewModels
 {
     using GalaSoft.MvvmLight.Command;
     using System.Windows.Input;
     using Xamarin.Forms;
     using System;
-    using Mundo.Views;
-    using mundo.ViewModels;
+    using Views;
+    using ViewModels;
 
-    class LoginViewModel : BaseViewModel
+    public class LoginViewModel : BaseViewModel
     {
 
         #region Properties

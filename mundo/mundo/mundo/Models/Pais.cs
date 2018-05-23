@@ -1,4 +1,4 @@
-﻿namespace Mundo.Models
+﻿namespace mundo.Models
 {
     using Newtonsoft.Json;
     using System.Collections.Generic;

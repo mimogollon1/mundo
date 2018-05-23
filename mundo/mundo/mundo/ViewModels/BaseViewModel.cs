@@ -1,5 +1,5 @@
 ﻿
-namespace Mundo.ViewModels
+namespace mundo.ViewModels
 {
     using System.Collections.Generic;
     using System.ComponentModel;

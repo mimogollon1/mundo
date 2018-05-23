@@ -1,4 +1,4 @@
-﻿namespace Mundo.Views
+﻿namespace mundo.Views
 {
     using Xamarin.Forms;
     using Xamarin.Forms.Xaml;
@@ -7,7 +7,7 @@
 	{
 		public PaisesPage ()
 		{
-			InitializeComponent ();
+			InitializeComponent();
 		}
 	}
 }

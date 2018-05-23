@@ -1,10 +1,8 @@
 ﻿namespace mundo.Infrastructure
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Text;
-    using mundo.ViewModels;
-    class InstanceLocator
+
+    using ViewModels;
+    public class InstanceLocator
     {
         #region Properties
         public MainViewModel Main{get;set;}

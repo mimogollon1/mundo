@@ -1,12 +1,13 @@
 ﻿namespace mundo.ViewModels
 {
-    using Mundo.ViewModels;
+    using ViewModels;
 
-    class MainViewModel
+    public class MainViewModel
     {
         #region ViewMoels
         public LoginViewModel Login { get; set; }
         public PaisesViewModel Paises { get; set; }
+        public PaisViewModel Pais { get; set; }
         #endregion
 
         #region Constructors

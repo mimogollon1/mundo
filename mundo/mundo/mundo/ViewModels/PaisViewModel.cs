@@ -1,10 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
+﻿
 namespace mundo.ViewModels
 {
-    class PaisViewModel
+    using Models;
+    public class PaisViewModel
     {
+        #region Properties
+        public Pais Pais { get; set; }
+        #endregion
+
+        #region Constructors
+        public PaisViewModel(Pais pais)
+        {
+            this.Pais = pais;
+        } 
+        #endregion
     }
 }
