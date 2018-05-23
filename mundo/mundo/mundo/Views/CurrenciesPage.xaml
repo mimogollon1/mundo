@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="mundo.Views.CurrenciesPage"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Icon="ic_coin"
              Title="Currencies">
     <ContentPage.Content>
         <StackLayout>
