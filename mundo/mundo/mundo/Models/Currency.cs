@@ -2,7 +2,7 @@
 {
     using Newtonsoft.Json;
 
-    class Currency
+    public class Currency
     {
         [JsonProperty(PropertyName = "code")]
         public string Code { get; set; }

@@ -2,7 +2,9 @@
 {
     using GalaSoft.MvvmLight.Command;
     using Models;
+    using mundo.ViewModels;
     using Mundo.Services;
+    using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.Linq;
@@ -16,14 +18,14 @@
         #endregion
 
         #region Attributes
-        private ObservableCollection<Pais> paises;
+        private ObservableCollection<PaisItemViewModel> paises;
         private bool isRefreshing;
         private string filter;
         private List<Pais> PaisList;
         #endregion
 
         #region Propperties
-        public ObservableCollection<Pais> Paises
+        public ObservableCollection<PaisItemViewModel> Paises
         {
             get { return this.paises; }
             set { SetValue(ref this.paises, value); }
@@ -80,7 +82,7 @@
             }
 
             this.PaisList = (List<Pais>)response.Result;
-            this.Paises = new ObservableCollection<Pais>(this.PaisList);
+            this.Paises = new ObservableCollection<PaisItemViewModel>(this.ToPaisItemViewModel());
             this.IsRefreshing = false;
         }
 
@@ -88,16 +90,48 @@
         {
             if (string.IsNullOrEmpty(this.Filter))
             {
-                this.Paises = new ObservableCollection<Pais>(this.PaisList);
+                this.Paises = new ObservableCollection<PaisItemViewModel>(
+                    this.ToPaisItemViewModel());
             }
             else
             {
-                this.Paises = new ObservableCollection<Pais>(
-                    this.PaisList.Where(P => 
+                this.Paises = new ObservableCollection<PaisItemViewModel>(
+                    this.ToPaisItemViewModel().Where(P => 
                                             P.Name.ToLower().Contains(this.Filter.ToLower()) ||
                                             P.Capital.ToLower().Contains(this.Filter.ToLower())
                                             ));
             }
+        }
+
+        private IEnumerable<PaisItemViewModel> ToPaisItemViewModel()
+        {
+            return this.PaisList.Select(l => new PaisItemViewModel
+            {
+                Alpha2Code = l.Alpha2Code,
+                Alpha3Code = l.Alpha3Code,
+                AltSpellings = l.AltSpellings,
+                Area = l.Area,
+                Borders = l.Borders,
+                CallingCodes = l.CallingCodes,
+                Capital = l.Capital,
+                Cioc = l.Cioc,
+                Currencies = l.Currencies,
+                Demonym = l.Demonym,
+                Flag = l.Flag,
+                Gini = l.Gini,
+                Languages = l.Languages,
+                Latlng = l.Latlng,
+                Name = l.Name,
+                NativeName = l.NativeName,
+                NumericCode = l.NumericCode,
+                Population = l.Population,
+                Region = l.Region,
+                RegionalBlocs = l.RegionalBlocs,
+                Subregion = l.Subregion,
+                Timezones = l.Timezones,
+                TopLevelDomain = l.TopLevelDomain,
+                Translations = l.Translations,
+            });
         }
         #endregion
 

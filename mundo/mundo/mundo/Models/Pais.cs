@@ -3,7 +3,7 @@
     using Newtonsoft.Json;
     using System.Collections.Generic;
 
-    class Pais
+    public class Pais
     {
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
