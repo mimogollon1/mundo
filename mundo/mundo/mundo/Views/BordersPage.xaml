@@ -6,10 +6,45 @@
              Icon="ic_land"
              Title="Borders">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Currencies"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout
+            BindingContext="{Binding Pais}">
+            <Label
+                    FontSize="Large"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center"
+                    Text="{Binding Pais.Name}"
+                    TextColor="Black">
+            </Label>
+            <ListView
+                HasUnevenRows="True"
+                ItemsSource="{Binding Borders}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Label 
+                                    Grid.Column="0"
+                                    FontAttributes="Bold"
+                                    FontSize="Medium" 
+                                    Text="{Binding Code}"
+                                    TextColor="Black">
+                                </Label>
+                                <Label 
+                                    VerticalOptions="Center"
+                                    Grid.Column="1"
+                                    Text="{Binding Name}"
+                                    TextColor="Black">
+                                </Label>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

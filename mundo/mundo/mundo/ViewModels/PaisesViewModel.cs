@@ -21,7 +21,6 @@
         private ObservableCollection<PaisItemViewModel> paises;
         private bool isRefreshing;
         private string filter;
-        private List<Pais> PaisList;
         #endregion
 
         #region Propperties
@@ -81,7 +80,7 @@
                 return;
             }
 
-            this.PaisList = (List<Pais>)response.Result;
+            MainViewModel.Getinstance().PaisList = (List<Pais>)response.Result;
             this.Paises = new ObservableCollection<PaisItemViewModel>(this.ToPaisItemViewModel());
             this.IsRefreshing = false;
         }
@@ -105,7 +104,7 @@
 
         private IEnumerable<PaisItemViewModel> ToPaisItemViewModel()
         {
-            return this.PaisList.Select(l => new PaisItemViewModel
+            return MainViewModel.Getinstance().PaisList.Select(l => new PaisItemViewModel
             {
                 Alpha2Code = l.Alpha2Code,
                 Alpha3Code = l.Alpha3Code,

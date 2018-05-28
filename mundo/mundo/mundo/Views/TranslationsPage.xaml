@@ -6,10 +6,151 @@
              Icon="ic_person"
              Title="Translations">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="TranslationsPage"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout
+            BindingContext="{Binding Pais}">
+            <Label
+                    FontSize="Large"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center"
+                    Text="{Binding Pais.Name}"
+                    TextColor="Black">
+            </Label>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label 
+                      FontAttributes="Bold"
+                      Grid.Column="0"
+                      Grid.Row="0"
+                      Text="Germany"
+                      TextColor="Black">
+                </Label>
+                <Label 
+                     Grid.Column="1"
+                     Grid.Row="0"
+                     Text="{Binding Pais.Translations.Germany}"
+                     TextColor="Black">
+                </Label>
+                <Label 
+                      FontAttributes="Bold"
+                      Grid.Column="0"
+                      Grid.Row="1"
+                      Text="Spanish"
+                      TextColor="Black">
+                </Label>
+                <Label 
+                     Grid.Column="1"
+                     Grid.Row="1"
+                     Text="{Binding Pais.Translations.Spanish}"
+                     TextColor="Black">
+                </Label>
+                <Label 
+                      FontAttributes="Bold"
+                      Grid.Column="0"
+                      Grid.Row="2"
+                      Text="French"
+                      TextColor="Black">
+                </Label>
+                <Label 
+                     Grid.Column="1"
+                     Grid.Row="2"
+                     Text="{Binding Pais.Translations.French}"
+                     TextColor="Black">
+                </Label>
+                <Label 
+                      FontAttributes="Bold"
+                      Grid.Column="0"
+                      Grid.Row="3"
+                      Text="Japanese"
+                      TextColor="Black">
+                </Label>
+                <Label 
+                     Grid.Column="1"
+                     Grid.Row="3"
+                     Text="{Binding Pais.Translations.Japanese}"
+                     TextColor="Black">
+                </Label>
+                <Label 
+                      FontAttributes="Bold"
+                      Grid.Column="0"
+                      Grid.Row="4"
+                      Text="Italian"
+                      TextColor="Black">
+                </Label>
+                <Label 
+                     Grid.Column="1"
+                     Grid.Row="4"
+                     Text="{Binding Pais.Translations.Italian}"
+                     TextColor="Black">
+                </Label>
+                <Label 
+                     FontAttributes="Bold"
+                     Grid.Column="0"
+                     Grid.Row="5"
+                     Text="Brazilian"
+                     TextColor="Black">
+                </Label>
+                <Label 
+                     Grid.Column="1"
+                     Grid.Row="5"
+                     Text="{Binding Pais.Translations.Brazilian}"
+                     TextColor="Black">
+                </Label>
+                <Label 
+                     FontAttributes="Bold"
+                     Grid.Column="0"
+                     Grid.Row="6"
+                     Text="Portugues"
+                     TextColor="Black">
+                </Label>
+                <Label 
+                     Grid.Column="1"
+                     Grid.Row="6"
+                     Text="{Binding Pais.Translations.Portugues}"
+                     TextColor="Black">
+                </Label>
+                <Label 
+                     FontAttributes="Bold"
+                     Grid.Column="0"
+                     Grid.Row="7"
+                     Text="Dutch"
+                     TextColor="Black">
+                </Label>
+                <Label 
+                     Grid.Column="1"
+                     Grid.Row="7"
+                     Text="{Binding Pais.Translations.Dutch}"
+                     TextColor="Black">
+                </Label>
+                <Label 
+                     FontAttributes="Bold"
+                     Grid.Column="0"
+                     Grid.Row="8"
+                     Text="Croatian"
+                     TextColor="Black">
+                </Label>
+                <Label 
+                     Grid.Column="1"
+                     Grid.Row="8"
+                     Text="{Binding Pais.Translations.Croatian}"
+                     TextColor="Black">
+                </Label>
+                <Label 
+                     FontAttributes="Bold"
+                     Grid.Column="0"
+                     Grid.Row="9"
+                     Text="Persian"
+                     TextColor="Black">
+                </Label>
+                <Label 
+                     Grid.Column="1"
+                     Grid.Row="9"
+                     Text="{Binding Pais.Translations.Persian}"
+                     TextColor="Black">
+                </Label>
+            </Grid>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

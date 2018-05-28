@@ -1,9 +1,15 @@
 ﻿namespace mundo.ViewModels
 {
+    using mundo.Models;
+    using System.Collections.Generic;
     using ViewModels;
 
     public class MainViewModel
     {
+        #region Properties
+        public List<Pais> PaisList { get; set; }
+        #endregion
+
         #region ViewMoels
         public LoginViewModel Login { get; set; }
         public PaisesViewModel Paises { get; set; }
