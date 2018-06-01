@@ -2,13 +2,16 @@
 {
     using GalaSoft.MvvmLight.Command;
     using System.Windows.Input;
+    using Services;
     using Xamarin.Forms;
     using System;
     using Views;
-    using ViewModels;
 
     public class LoginViewModel : BaseViewModel
     {
+        #region Services
+        private ApiService apiService;
+        #endregion
 
         #region Properties
         public bool IsRemenber { get; set; }
@@ -44,10 +47,9 @@
         #region Contructors
         public LoginViewModel()
         {
+            this.apiService = new ApiService();
             this.IsRemenber = true;
             this.isEnable = true;
-            this.Email = "mogollon_11@hotmail.com";
-            this.Password = "1234";
         }
         #endregion
 
@@ -63,8 +65,14 @@
 
         private async void Login()
         {
+
+            this.IsLoading = true;
+            this.IsEnable = false;
+
             if (String.IsNullOrEmpty(this.Email))
             {
+                this.IsLoading = false;
+                this.IsEnable = true;
                 await Application.Current.MainPage.DisplayAlert(
                     "Error",
                     "You must enter an email",
@@ -74,34 +82,69 @@
 
             if (String.IsNullOrEmpty(this.Password))
             {
+                this.IsLoading = false;
+                this.IsEnable = true;
                 await Application.Current.MainPage.DisplayAlert(
                     "Error",
                     "You must enter an password",
                    "Accept");
                 return;
             }
-            this.isLoading = true;
-            this.isEnable = false;
-            if (this.Email != "mogollon_11@hotmail.com" || this.Password != "1234")
+
+
+            var conection = await this.apiService.CheckConnection();
+
+            if (!conection.IsSuccess)
             {
-                this.isLoading = false;
-                this.isEnable = true;
+                this.IsLoading = false;
+                this.IsEnable = true;
                 await Application.Current.MainPage.DisplayAlert(
                    "Error",
-                   "Email or password incorrect",
+                   conection.Message,
                   "Accept");
                 this.Password = string.Empty;
                 return;
             }
 
-            this.isLoading = false;
-            this.isEnable = true;
+            var token = await this.apiService.GetToken("https://mundoapi.azurewebsites.net"
+                , this.Email
+                , this.Password);
 
-            this.Password = string.Empty;
-            this.Email = string.Empty;
+            if (token == null)
+            {
+                this.IsLoading = false;
+                this.IsEnable = true;
+                await Application.Current.MainPage.DisplayAlert(
+                   "Error",
+                   "something was wrong, please try agaun",
+                  "Accept");
+                this.Password = string.Empty;
+                return;
+            }
+
+            if(string.IsNullOrEmpty(token.AccessToken))
+            {
+                this.IsLoading = false;
+                this.IsEnable = true;
+                await Application.Current.MainPage.DisplayAlert(
+                   "Error",
+                   token.ErrorDescription,
+                  "Accept");
+                this.Password = string.Empty;
+                return;
+            }
+
+            var mainViewModel = MainViewModel.Getinstance();
+            mainViewModel.Token = token;
 
             MainViewModel.Getinstance().Paises = new PaisesViewModel();
             await Application.Current.MainPage.Navigation.PushAsync(new PaisesPage());
+
+            this.IsLoading = false;
+            this.IsEnable = true;
+
+            this.Password = string.Empty;
+            this.Email = string.Empty;
         }
         #endregion
     }

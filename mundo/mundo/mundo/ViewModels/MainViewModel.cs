@@ -8,6 +8,7 @@
     {
         #region Properties
         public List<Pais> PaisList { get; set; }
+        public TokenResponse Token { get; set; }
         #endregion
 
         #region ViewMoels
