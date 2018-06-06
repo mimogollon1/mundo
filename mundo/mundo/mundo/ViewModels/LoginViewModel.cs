@@ -6,6 +6,7 @@
     using Xamarin.Forms;
     using System;
     using Views;
+    using Helpers;
 
     public class LoginViewModel : BaseViewModel
     {
@@ -50,10 +51,12 @@
             this.apiService = new ApiService();
             this.IsRemenber = true;
             this.isEnable = true;
+            this.Email = "mogollon_11@hotmail.com";
+            this.Password = "666666";
         }
         #endregion
 
-        #region Commands
+         #region Commands
         public ICommand LoginComand
         {
             get
@@ -74,9 +77,9 @@
                 this.IsLoading = false;
                 this.IsEnable = true;
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
-                    "You must enter an email",
-                   "Accept");
+                    Languages.Error,
+                    Languages.EmailValidator,
+                    Languages.Accept);
                 return;
             }
 
