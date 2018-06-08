@@ -1,4 +1,4 @@
-﻿namespace mundo.Models
+﻿namespace mundo.Domain
 {
     public class Response
     {
