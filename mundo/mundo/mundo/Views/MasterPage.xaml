@@ -10,7 +10,7 @@
         <NavigationPage 
             x:Name="Navigator">
             <x:Arguments>
-                <pages:PaisTabbedPage/>
+                <pages:PaisesPage/>
             </x:Arguments>            
         </NavigationPage>
     </MasterDetailPage.Detail>

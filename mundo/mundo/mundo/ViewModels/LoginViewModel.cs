@@ -52,7 +52,7 @@
             this.IsRemenber = true;
             this.isEnable = true;
             this.Email = "mogollon_11@hotmail.com";
-            this.Password = "666666";
+            this.Password = "Miguelo789";
         }
         #endregion
 
@@ -65,7 +65,9 @@
             }
         }
 
+        #endregion
 
+        #region Methods
         private async void Login()
         {
 
@@ -125,7 +127,7 @@
                 return;
             }
 
-            if(string.IsNullOrEmpty(token.AccessToken))
+            if (string.IsNullOrEmpty(token.AccessToken))
             {
                 this.IsLoading = false;
                 this.IsEnable = true;
@@ -138,10 +140,16 @@
             }
 
             var mainViewModel = MainViewModel.Getinstance();
-            mainViewModel.Token = token;
+            mainViewModel.Token = token.AccessToken;
+            mainViewModel.TokenType = token.TokenType;
 
+            if(IsRemenber){
+                Settings.Token = token.AccessToken;
+                Settings.TokenType = token.TokenType;
+            }
+            
             MainViewModel.Getinstance().Paises = new PaisesViewModel();
-            await Application.Current.MainPage.Navigation.PushAsync(new PaisesPage());
+            Application.Current.MainPage = new MasterPage();
 
             this.IsLoading = false;
             this.IsEnable = true;
@@ -149,6 +157,7 @@
             this.Password = string.Empty;
             this.Email = string.Empty;
         }
+
         #endregion
     }
 }

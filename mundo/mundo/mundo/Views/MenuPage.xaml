@@ -3,12 +3,40 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="mundo.Views.MenuPage"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Icon="menu"
              Title="Menu">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Menu"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <ListView
+                BackgroundColor="Navy"
+                ItemsSource="{Binding Menus}"
+                HasUnevenRows="True"
+                SeparatorVisibility="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding NavigateCommand}"/>
+                                </Grid.GestureRecognizers>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Image
+                                    Source="{Binding Icon}"
+                                    WidthRequest="50"
+                                    HeightRequest="50"/>
+                                <Label
+                                    Grid.Column="1"
+                                    VerticalOptions="Center"
+                                    TextColor="White"
+                                    Text="{Binding Title}"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -6,6 +6,8 @@ using Xamarin.Forms.Xaml;
 [assembly: XamlCompilation (XamlCompilationOptions.Compile)]
 namespace mundo
 {
+    using mundo.Helpers;
+    using mundo.ViewModels;
     using Views;
     public partial class App : Application
 	{
@@ -17,9 +19,19 @@ namespace mundo
         public App()
         {
             InitializeComponent();
-
-            //this.MainPage = new NavigationPage(new LoginPage());
-            this.MainPage = new MasterPage();
+            if (string.IsNullOrEmpty(Settings.Token))
+            {
+                this.MainPage = new NavigationPage(new LoginPage());
+            }
+            else
+            {
+                var mainViewModel = MainViewModel.Getinstance();
+                mainViewModel.Token = Settings.Token;
+                mainViewModel.TokenType = Settings.TokenType;
+                mainViewModel.Paises = new PaisesViewModel();
+                this.MainPage = new MasterPage();
+            }
+           
         }
         #endregion
 

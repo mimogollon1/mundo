@@ -21,7 +21,7 @@
         private async void SelectPais()
         {
             MainViewModel.Getinstance().Pais = new PaisViewModel(this);
-            await Application.Current.MainPage.Navigation.PushAsync(new PaisTabbedPage());
+            await App.Navigator.PushAsync(new PaisTabbedPage());
         }
         #endregion
     }
